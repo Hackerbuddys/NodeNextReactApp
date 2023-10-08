@@ -4,7 +4,7 @@ import TextForm from "./components/TextForm";
 function App() {
   return (
     <>
-      <Navbar title="LOGO ADD" />
+      <Navbar title="TetxtUtils" />
       <TextForm Heading="Enter the text to analyze below:" />
     </>
   );

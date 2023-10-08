@@ -55,7 +55,7 @@ Navbar.propTypes = {
 };
 
 Navbar.defaultProps = {
-  About: "COMPANY",
+  About: "About",
 };
 
 export default Navbar;
