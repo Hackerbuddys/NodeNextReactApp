@@ -33,7 +33,6 @@ export default function TextForm(props) {
       console.error("Error reading clipboard:", error);
     }
   };
-  console.log(handleClickPast);
   return (
     <div className="container">
       <h1>{props.Heading}</h1>
