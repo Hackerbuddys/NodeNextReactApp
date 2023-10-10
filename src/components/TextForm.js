@@ -10,10 +10,30 @@ export default function TextForm(props) {
     setText(NewText);
   };
   const handleOnChange = (event) => {
-    console.log("onchange");
     setText(event.target.value);
   };
+  const handleExtraSpace = () => {
+    const trimmedText = text.trim();
+    const Ex_test = trimmedText.split(/[ ]+/);
+    const modifiedText = Ex_test.join(" ");
+    setText(modifiedText);
+  };
+  const handleClickCopy = () => {
+    navigator.clipboard.writeText(`${text}`);
+  };
+  const handleClearText = () => {
+    setText("");
+  };
 
+  const handleClickPast = async () => {
+    try {
+      const clip = await navigator.clipboard.readText();
+      setText((prevText) => prevText + clip);
+    } catch (error) {
+      console.error("Error reading clipboard:", error);
+    }
+  };
+  console.log(handleClickPast);
   return (
     <div className="container">
       <h1>{props.Heading}</h1>
@@ -28,6 +48,18 @@ export default function TextForm(props) {
       </div>
       <button className="btn btn-primary" onClick={handleUpClick}>
         Convert to Uppercase
+      </button>
+      <button className="btn btn-success mx-3" onClick={handleExtraSpace}>
+        Remove Extra Space
+      </button>
+      <button className="btn btn-warning mx-1" onClick={handleClickCopy}>
+        Click to Copy
+      </button>
+      <button className="btn btn-info mx-3" onClick={handleClickPast}>
+        click to Past
+      </button>
+      <button className="btn btn-danger mx-2" onClick={handleClearText}>
+        Clear Text
       </button>
     </div>
   );
