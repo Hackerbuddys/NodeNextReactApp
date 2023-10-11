@@ -10,11 +10,32 @@ function App() {
   // const updateSharedText = (text) => {
   //   setSharedText(text);
   // };
+  const [mode, setMode] = useState("dark");
+  const toggleMode = () => {
+    if (mode === "light") {
+      setMode("dark");
+    } else {
+      setMode("light");
+    }
+  };
+
+  const [col, setCol] = useState("dark");
+  const ColChange = () => {
+    if (col === "light") {
+      setCol("dark");
+    } else {
+      setCol("light");
+    }
+  };
 
   return (
     <>
-      <Navbar title="TetxtUtils" />
-      <TextForm Heading="Enter the text to analyze below:" />
+      <Navbar title="TetxtUtils" mode={mode} toggleMode={toggleMode} />
+      <TextForm
+        Heading="Enter the text to analyze below:"
+        col={col}
+        ColChange={ColChange}
+      />
       {/* <About /> */}
       {/* <TextForm Heading="TextForm" sharedText={sharedText} /> */}
       {/* <TextForm2 onConvert={updateSharedText} /> */}

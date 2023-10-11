@@ -38,7 +38,7 @@ export default function TextForm(props) {
       <h1>{props.Heading}</h1>
       <div className="mb-3">
         <textarea
-          className="form-control"
+          className={`form-control text-dark bg-${props.col}`}
           id="Mybox"
           rows="8"
           value={text}
@@ -59,6 +59,9 @@ export default function TextForm(props) {
       </button>
       <button className="btn btn-danger mx-2" onClick={handleClearText}>
         Clear Text
+      </button>
+      <button className="btn btn-danger mx-2" onClick={props.ColChange}>
+        ColorChange
       </button>
     </div>
   );
