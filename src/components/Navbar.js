@@ -38,7 +38,7 @@ function Navbar(props) {
             <input
               type="checkbox"
               className="form-check-input"
-              onClick={props.toggleMode}
+              onClick={props.toggleMode} //Ternary operator
               id="flexSwitchCheckDefault"
             />
             <label className="form-check-label" for="flexSwitchCheckDefault">
@@ -52,12 +52,12 @@ function Navbar(props) {
 }
 
 Navbar.propTypes = {
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired, //PropTypes
   About: PropTypes.string,
 };
 
 Navbar.defaultProps = {
-  About: "About",
+  About: "About", //DefaultProps
 };
 
 export default Navbar;

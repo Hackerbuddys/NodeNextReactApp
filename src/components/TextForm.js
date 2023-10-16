@@ -9,6 +9,12 @@ export default function TextForm(props) {
     let NewText = text.toUpperCase();
     setText(NewText);
   };
+
+  const handleLowClick = () => {
+    console.log("Lowercase has clicked");
+    let newText = text.toLowerCase();
+    setText(newText);
+  };
   const handleOnChange = (event) => {
     setText(event.target.value);
   };
@@ -21,9 +27,6 @@ export default function TextForm(props) {
   const handleClickCopy = () => {
     navigator.clipboard.writeText(`${text}`);
   };
-  const handleClearText = () => {
-    setText("");
-  };
 
   const handleClickPast = async () => {
     try {
@@ -34,11 +37,11 @@ export default function TextForm(props) {
     }
   };
   return (
-    <div className="container">
+    <div className="container my-5">
       <h1>{props.Heading}</h1>
       <div className="mb-3">
         <textarea
-          className={`form-control text-dark bg-${props.col}`}
+          className={`form-control text-dark`}
           id="Mybox"
           rows="8"
           value={text}
@@ -48,6 +51,9 @@ export default function TextForm(props) {
       <button className="btn btn-primary" onClick={handleUpClick}>
         Convert to Uppercase
       </button>
+      <button className="btn btn-danger mx-2" onClick={handleLowClick}>
+        Convert to Lowercase
+      </button>
       <button className="btn btn-success mx-3" onClick={handleExtraSpace}>
         Remove Extra Space
       </button>
@@ -56,12 +62,6 @@ export default function TextForm(props) {
       </button>
       <button className="btn btn-info mx-3" onClick={handleClickPast}>
         click to Past
-      </button>
-      <button className="btn btn-danger mx-2" onClick={handleClearText}>
-        Clear Text
-      </button>
-      <button className="btn btn-danger mx-2" onClick={props.ColChange}>
-        ColorChange
       </button>
     </div>
   );
