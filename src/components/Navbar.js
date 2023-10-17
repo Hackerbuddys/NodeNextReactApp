@@ -34,15 +34,19 @@ function Navbar(props) {
               </a>
             </li>
           </ul>
-          <div className="form-check form-switch text-light">
+          <div
+            className={`form-check form-switch text-${
+              props.mode === "light" ? "dark" : "light"
+            }`} //Ternary operator | conditional operator
+          >
             <input
               type="checkbox"
               className="form-check-input"
-              onClick={props.toggleMode} //Ternary operator
+              onClick={props.toggleMode}
               id="flexSwitchCheckDefault"
             />
             <label className="form-check-label" for="flexSwitchCheckDefault">
-              DarkMode
+              Enable DarkMode
             </label>
           </div>
         </div>
