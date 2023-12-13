@@ -7,7 +7,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 const localizer = momentLocalizer(moment);
 
 function MyCalendar() {
-  const [events, setEvents] = useState([
+  const [events] = useState([
     {
       id: 1,
       title: "Event 1",

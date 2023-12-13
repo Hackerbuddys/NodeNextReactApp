@@ -2,12 +2,34 @@ import "./App.css";
 import { useState } from "react";
 import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
-// import Select from "react-select";
-import DataList from "./components/DataList";
+// import DataList from "./components/DataList";
+// import MyCalendar from "./components/calender";
 
 function App() {
   const [mode, setMode] = useState("light");
-  const toggleMode = () => {
+  const removeBodyClass = () => {
+    document.body.classList.remove(`bg-light`);
+    document.body.classList.remove(`bg-dark`);
+    document.body.classList.remove(`bg-warning`);
+    document.body.classList.remove(`bg-danger`);
+    document.body.classList.remove(`bg-success`);
+  };
+
+  const toggleMode = (cls) => {
+    removeBodyClass();
+
+    let bgColorClass = "";
+
+    if (typeof cls === "string") {
+      bgColorClass = cls;
+    } else if (typeof cls === "object" && cls !== null) {
+      bgColorClass = cls.color || "";
+    }
+
+    if (bgColorClass) {
+      document.body.classList.add("bg-" + bgColorClass);
+    }
+
     if (mode === "light") {
       setMode("dark");
       document.body.style.background = "grey";
@@ -24,39 +46,12 @@ function App() {
     }
   };
 
-  // const options = [
-  //   { value: "A Crownlands" },
-  //   { value: "A_Islands" },
-  //   { value: " @_North" },
-  //   { value: "123 Reach" },
-  //   { value: "C Riverlands" },
-  //   { value: "D Vale" },
-  //   { value: "E Westerlands" },
-  //   { value: "F Stormlands" },
-  //   { value: "G Stormlands" },
-  //   { value: "H Stormlands" },
-  //   { value: "I Stormlands" },
-  //   { value: "J Stormlands" },
-  //   { value: "K Stormlands" },
-  //   { value: "L Stormlands" },
-  // ];
-  // const [region, setRegion] = useState(options[0]);
-  // const onchangeSelect = (item) => {
-  //   setRegion(item);
-  // };
-
   return (
     <>
       <Navbar title="TetxtUtils" mode={mode} toggleMode={toggleMode} />
       <TextForm Heading="Enter the text to analyze below:" mode={mode} />
-      <DataList />
-      {/* <Select
-        value={region}
-        onChange={onchangeSelect}
-        options={options}
-        getOptionValue={(option) => option.value}
-        getOptionLabel={(option) => option.value}
-      /> */}
+      {/* <DataList />
+      <MyCalendar /> */}
     </>
   );
 }
