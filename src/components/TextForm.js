@@ -6,13 +6,13 @@ export default function TextForm(props) {
 
   const handleUpClick = () => {
     console.log("Uppercas has clicked");
-    let NewText = text.toUpperCase();
+    const NewText = text.toUpperCase();
     setText(NewText);
   };
 
   const handleLowClick = () => {
     console.log("Lowercase has clicked");
-    let newText = text.toLowerCase();
+    const newText = text.toLowerCase();
     setText(newText);
   };
   const handleOnChange = (event) => {
