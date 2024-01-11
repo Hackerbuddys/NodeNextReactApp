@@ -2,8 +2,6 @@ import "./App.css";
 import { useState } from "react";
 import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
-// import DataList from "./components/DataList";
-// import MyCalendar from "./components/calender";
 
 function App() {
   const [mode, setMode] = useState("light");
@@ -50,8 +48,6 @@ function App() {
     <>
       <Navbar title="TetxtUtils" mode={mode} toggleMode={toggleMode} />
       <TextForm Heading="Enter the text to analyze below:" mode={mode} />
-      {/* <DataList />
-      <MyCalendar /> */}
     </>
   );
 }

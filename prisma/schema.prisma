@@ -1,0 +1,25 @@
+generator client {
+    provider = "prisma-client-js"
+}
+
+generator zod {
+    provider              = "zod-prisma"
+    output                = "./zod"
+    useDecimalJs          = "false"
+    ignore                = ["id", "created_at", "deleted_at", "updated_at"]
+    prismaJsonNullability = "true"
+    modelCase             = "PascalCase"
+    relationModel         = "false"
+    modelSuffix           = "Model"
+}
+
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+model User {
+    id    Int     @id @default(autoincrement())
+    email String  @unique
+    name  String?
+}
